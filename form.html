@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Angular</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<script type="text/javascript" src="angular-1.6.9/angular.min.js"></script>
+		
+</head>
+<body>
+	<div ng-app="myApp" ng-controller="myCtrl" class="col-md-6 vcenter" id="todo">
+		<h1 class="col-md-12">To Do List</h1>
+		<input class="col-md-10" type="text" ng-model="text">
+		<button class="col-md-2" ng-click="addTodo()" ng-model="action">add</button>
+		<h3 class="col-md-12">Tasks: {{todo.length}}</h3>
+		<ul class="col-md-12" >
+			<li ng-repeat="x in todo track by $index" class="col-md-12">
+				<input class="col-md-2" type="checkbox" ng-model="complete[$index]" ng-true-value="false">
+				<p class="col-md-6" ng-show="!foo">{{x}}</p>
+				<input class="col-md-6" type="text" ng-model="index[$index]" ng-show="foo">
+				<button class="col-md-2" ng-click="removeTodo($index)">Delete</button>
+				<button class="col-md-2" ng-click="foo=true" ng-show="!foo">Edit</button>
+				
+				<button class="col-md-2" ng-click="editSave($index);foo=false" ng-show="foo">Save</button>
+			</li>
+		</ul>
+		<button class="col-md-12" ng-click="clear()">Clear Completed</button>
+	</div>	
+
+
+
+	
+	<script type="text/javascript" src="myApp.js"></script>
+	<script type="text/javascript" src="myCtrl.js"></script>
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/bootstrap.js"></script>
+</body>
+</html>
